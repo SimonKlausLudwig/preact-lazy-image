@@ -1,0 +1,14 @@
+.wrapper {
+    display: grid;
+
+    img {
+        grid-row: 1;
+        grid-column: 1;
+        opacity: 1;
+        align-self: end;
+    }
+
+    img:first-of-type {
+        z-index: 0;
+    }
+}
