@@ -69,10 +69,10 @@ export default class LazyImage extends Component {
 
     render() {
         return <div className={style.wrapper}>
-            <img ref={img => this.img = img}
-                 className={classNames({[style.hidden]: !this.state.loaded}, this.props.className)}
+            <img alt="lazy-image-main" ref={img => this.img = img}
+                 className={!this.state.loaded ? [style.hidden] : ""}
                  src={this.state.url}/>
-            <img className={style.backup} src={this.props.backup || this.props.placeholder}/>
+            <img alt="lazy-image-placeholder" className={style.backup} src={this.props.backup || this.props.placeholder}/>
         </div>
     };
 }
