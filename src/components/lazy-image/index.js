@@ -1,5 +1,4 @@
 import {Component} from 'preact';
-import style from './style.scss';
 
 export default class LazyImage extends Component {
 
@@ -68,11 +67,13 @@ export default class LazyImage extends Component {
     }
 
     render() {
-        return <div className={style.wrapper}>
-            <img alt="lazy-image-main" ref={img => this.img = img}
-                 className={!this.state.loaded ? [style.hidden] : ""}
+        return <div style="display: grid;" className={this.props.className}>
+            <img style=" grid-row: 1;grid-column: 1;opacity: 1;align-self: end;z-index: 0;" alt="lazy-image-main"
+                 ref={img => this.img = img}
                  src={this.state.url}/>
-            <img alt="lazy-image-placeholder" className={style.backup} src={this.props.backup || this.props.placeholder}/>
+            <img alt="lazy-image-placeholder"
+                 style=" grid-row: 1;grid-column: 1;opacity: 1;align-self: end;"
+                 src={this.props.backup || this.props.placeholder}/>
         </div>
     };
 }
